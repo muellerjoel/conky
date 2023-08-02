@@ -14,7 +14,7 @@ conky.config = {
     extra_newline = false,
     font = 'Noto Sans Mono:size=12',
     gap_x = 20,
-    gap_y = 20,
+    gap_y = -30,
     border_inner_margin = 16,
     boarder_outer_margin = 8,
     minimum_height = 5,
@@ -78,8 +78,9 @@ ${color grey}Home    : ${color}${fs_free /home} ${goto 215}${color grey}/ ${colo
 #${color grey}Dropbox   : $color${fs_free /home/username/Cloud/Dropbox} ${goto 215}${color grey}/ ${color}${fs_size /home/username/Cloud/Dropbox}${goto 335}${voffset 3}${fs_bar /home/username/Cloud/Dropbox}${voffset -3}
 #${color grey}Mega      : $color${fs_free /home/username/Cloud/Mega} ${goto 215}${color grey}/ ${color}${fs_size /home/username/Cloud/Mega}${goto 335}${voffset 3}${fs_bar /home/username/Cloud/Mega}${voffset -3}
 ${color grey}NAS     : $color${fs_free /home/backup} ${goto 215}${color grey}/ ${color}${fs_size /home/backup}${goto 335}${voffset 3}${fs_bar /home/backup}${voffset -3}
-${voffset 4}${color grey}      Read: ${color}${diskio_read /dev/md0} ${goto 230}${color grey}Write: ${color}${diskio_read /dev/md0}
-${voffset 6}${color}${font :size=14}NETWORK ${font}$hr
+${voffset 3}${color grey}      Read: ${color}${diskio_read /dev/md0} ${goto 230}${color grey}Write: ${color}${diskio_read /dev/md0}
+${if_existing /home/backup/"a file or a lock"} ${color grey}NAS : {fs_free /home/backup} ${goto 215}${color grey}/ ${color}${fs_size /home/backup}${goto 335}${voffset 3}${fs_bar /home/backup}${voffset -3}${endif}
+${voffset -15}${color}${font :size=14}NETWORK ${font}$hr
 ${if_existing /proc/net/route wlp0s20f3}\
 ${if_existing /proc/net/route enp58s0u1u3c2}\
 ${voffset 4}${color grey}Warning: ${color}Both Wi-Fi and wired network active!
