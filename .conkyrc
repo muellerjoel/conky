@@ -85,7 +85,7 @@ ${if_existing /proc/net/route wlp0s20f3}\
 ${if_existing /proc/net/route enp58s0u1u3c2}\
 ${voffset 4}${color grey}Warning: ${color}Both Wi-Fi and wired network active!
 ${else}\
-${voffset 4}${color grey}ESSID: ${color}${wireless_essid wlp0s20f3}${goto 240}${color grey}Quality: ${color}${wireless_link_qual_perc wlp0s20f3}%6
+${voffset 4}${color grey}ESSID: ${color}${wireless_essid wlp0s20f3}${goto 240}${color grey}Quality: ${color}${wireless_link_qual_perc wlp0s20f3}%
 ${voffset 4}${color grey}  IP : ${color}${addr wlp0s20f3}${goto 240}${voffset 8}${color grey}Down:${goto 300}${color}${downspeed wlp0s20f3}
 ${voffset -8}${color grey}  Zt : ${color}${addr zerotierdevice}${goto 240}${voffset 8}${color grey}Up  :${goto 300}${color}${upspeed wlp0s20f3}
 ${voffset -8}${color grey}  GW : ${color}${gw_ip}
@@ -101,5 +101,5 @@ ${color grey}  Pub: ${color}${texeci 30 ~/.config/conky/pubIP.sh}
 ${endif}\
 ${endif}\
 ${voffset 6}${color}${font :size=14}UPDATES ${font}$hr
-${voffset 4}${color grey}      Arch: ${color}${execi 600 checkupdates | wc -l}${goto 230}${color grey}AUR: ${color}${execi 600 auracle outdated | wc -l}
+${voffset 4}${color grey}      Arch: ${color}${execi 600  pacman -Qqu | wc -l}${goto 230}${color grey}AUR: ${color}${execi 600 auracle outdated | wc -l}
 ]]
